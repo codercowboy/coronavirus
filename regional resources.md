@@ -1,5 +1,11 @@
 <h3>Regional Resources</h3>	
 
+* [ABC's incredible info page w/ state-level resource links](https://abcnews.go.com/Health/coronavirus-map-tracking-spread-us-world/story?id=69415591&fbclid=IwAR21Gr7KDKSK91DV65hRwhSAuQXvZ3Ov_p82l4avEvw7EAsUo1NyR2f2oHM) (Thanks Cody!)
+* [The Covid Tracking Project](https://covidtracking.com/) is an incredible resource for US Data as well as [state-level links](https://covidtracking.com/data/) directly to each state's COVID-19 page. (Thanks Demi!)
+
+
+**Resources For Specific States**
+
 <ul>
 <li>Arizona: <a href="https://azgovernor.gov/governor/news/2020/03/governor-ducey-statement-related-updated-covid-19-guidance">Arizona Governor COVID-19 Guidance</a></li>
 <ul>

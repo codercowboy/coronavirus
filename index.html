@@ -22,7 +22,8 @@
 		H5 { font-weight:700; }
 		P { margin-left:0.5rem; margin-right:0.5rem; text-align:justify; }
 		A { color:#3498DB!important; }
-		IMG { max-width:100%; }
+		IMG { max-width:600px; }
+		.memes IMG { max-width:300px; }
 		.section { margin-bottom:1rem; border-top:1px solid rgba(0,0,0,0.15); padding-top:1rem; }
 	</style>
 
@@ -31,11 +32,18 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
+					console.log("loaded " + docName + " for div '" + divId + "'");
 					var contents = this.responseText;
 					if (docName.endsWith(".md")) {
 						contents = markdown.toHTML(contents);
+						//fix markdown encoding < and > to &lt; and &gt;
+						contents = contents.replace(/&lt;/g, "<");
+						contents = contents.replace(/&gt;/g, ">");
+						contents = contents.replace(/&quot;/g, "\"");
+						contents = contents.replace(/&#39;/g, "'");
+						
+						console.log("markdown result for " + docName + "\n" + contents);
 					}
-					console.log("loaded " + docName + " for div '" + divId + "'");
 					document.getElementById(divId).innerHTML = contents;
 				}
 			};
@@ -45,15 +53,25 @@
 
 		document.addEventListener('DOMContentLoaded', function() {			
 			loadDoc("essentialResources", "essential resources.html");
-			loadDoc("regionalResources", "regional resources.html");
+			loadDoc("regionalResources", "regional resources.md");
 			loadDoc("survivalGuide", "survival guide.html");
 			loadDoc("data", "data.md");
 			loadDoc("help", "help.md");
-			loadDoc("jobs", "jobs.html");
+			loadDoc("jobs", "jobs.md");
 			loadDoc("newsSources", "news sources.html");			
 			loadDoc("meta", "meta.html");
-		}, false);
-
+			loadDoc("mentalHealth", "mental health.md");
+			loadDoc("misc", "misc.md");
+			loadDoc("toc", "toc.md");
+		}, false);		
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-33284553-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+		gtag('config', 'UA-33284553-1');
 	</script>
 </head>
 <body>
@@ -72,15 +90,30 @@
 
 		<p>Jason is not a trained scientist or doctor. This page is not an authority on <strong>anything</strong>, it's simply a collection of information that Jason hopes you might find useful. Do your own research. Listen to the <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">WHO</a>, the <a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html">CDC</a>, and be safe.</p>
 	</div>
-	
-	<div class='section' id='essentialResources' /></div>	
-	<div class='section' id="help"></div>		
+
+	<div class='section' id="toc"></div>	
+
+	<a name="mentalHealth" href="#top">Back To Top</a>
+	<div class='section' id="mentalHealth"></div>		
+	<a name="essentialResources" href="#top">Back To Top</a>
+	<div class='section' id='essentialResources' /></div>			
+	<a name="help" href="#top">Back To Top</a>
+	<div class='section' id="help"></div>			
+	<a name="regionalResources" href="#top">Back To Top</a>
 	<div class='section' id="regionalResources"></div>
+	<a name="data" href="#top">Back To Top</a>
 	<div class='section' id="data"></div>
-	<div class='section' id='survivalGuide' /></div>
+	<a name="jobs" href="#top">Back To Top</a>
 	<div class='section' id='jobs' /></div>	
+	<a name="survivalGuide" href="#top">Back To Top</a>
+	<div class='section' id='survivalGuide' /></div>
+	<a name="misc" href="#top">Back To Top</a>
+	<div class='section' id='misc' /></div>
+	<a name="newsSources" href="#top">Back To Top</a>
 	<div class='section' id="newsSources"></div>
+	<a name="meta" href="#top">Back To Top</a>
 	<div class='section' id="meta"></div>
+	
 </div>
 
 
